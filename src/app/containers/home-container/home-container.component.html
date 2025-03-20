@@ -1,1 +1,35 @@
-<p>home-container works!</p>
+<div class="container">
+  <div class="item item-1">
+    <img
+      [src]="strawberryImagePath"
+      [ngStyle]="{ 'width.px': 300, 'height.px': 300 }"
+      alt="earl-grey-macarons"
+    />
+  </div>
+  <div class="item item-2">
+    <h1>The history of Macarons</h1>
+    <p>{{ historyOfMacarons }}</p>
+  </div>
+  <div class="item item-3">
+    <h1>There are two ways of making Macarons</h1>
+    <p>{{ howToMakeMacarons }}</p>
+  </div>
+  <div class="item item-4">
+    <img
+      [src]="cityImagePath"
+      [ngStyle]="{ 'width.px': 400, 'height.px': 300 }"
+      alt="paris-rome"
+    />
+  </div>
+  <div class="item item-5">
+    <img
+      [src]="lemonImagePath"
+      [ngStyle]="{ 'width.px': 310, 'height.px': 300 }"
+      alt="lemon-macarons"
+    />
+  </div>
+  <div class="item item-6">
+    <h1>March 20th is National Macaron Day</h1>
+    <p>{{ nationalMacaronDay }}</p>
+  </div>
+</div>

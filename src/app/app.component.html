@@ -1,12 +1,17 @@
 <mat-toolbar class="header">
   <div class="header-left-side">
     <span class="macaron-logo">Macaron Delights</span>
-    <button mat-button>Home</button>
-    <button mat-button>Recipes</button>
-    <button mat-button>Webshop</button>
+    <button mat-button (click)="onNavigateToHome()">Home</button>
+    <button mat-button (click)="onNavigateToRecipe()">Recipes</button>
+    <button mat-button (click)="onNavigateToWebshop()">Webshop</button>
   </div>
   <div class="header-right-side">
-    <button mat-mini-fab aria-label="Example icon button with a menu icon">
+    <button
+      mat-mini-fab
+      class="cart-background"
+      aria-label="Example icon button with a menu icon"
+      (click)="onNavigateToCart()"
+    >
       <i class="material-icons">shopping_cart</i>
     </button>
   </div>
