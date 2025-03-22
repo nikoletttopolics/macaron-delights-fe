@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #ffebee;
+}
+
+.item-2 {
+  grid-area: 1 / 2 / span 1 / span 2;
+}
+
+.item-3 {
+  grid-area: 2 / 1 / span 1 / span 2;
+}
+
+.item-4 {
+  display: flex;
+  justify-content: end;
+}
+
+.item-6 {
+  grid-area: 3 / 2 / span 1 / span 2;
+}
+
+.item {
+  padding: 32px;
+}
+
+// todo: class-t hozzaadni; szint modositani
+h1,
+p {
+  color: #7f555b;
+}
+
+p {
+  font-size: 24px;
+}
