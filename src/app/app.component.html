@@ -1,9 +1,20 @@
 <mat-toolbar class="header">
   <div class="header-left-side">
     <span class="macaron-logo">Macaron Delights</span>
-    <button mat-button (click)="onNavigateToHome()">Home</button>
-    <button mat-button (click)="onNavigateToRecipe()">Recipes</button>
-    <button mat-button (click)="onNavigateToWebshop()">Webshop</button>
+    <button class="header-button" mat-button (click)="onNavigateToHome()">
+      Home
+    </button>
+    <button class="header-button" mat-button (click)="onNavigateToRecipe()">
+      Recipes
+    </button>
+    <button
+      filled-container-color
+      class="header-button"
+      mat-button
+      (click)="onNavigateToWebshop()"
+    >
+      Webshop
+    </button>
   </div>
   <div class="header-right-side">
     <button

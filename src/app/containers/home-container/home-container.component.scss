@@ -1,6 +1,7 @@
 .container {
   display: grid;
   grid-template-columns: auto auto auto;
+  background-color: #ffebee;
 }
 
 .item-2 {
@@ -24,11 +25,12 @@
   padding: 32px;
 }
 
+// todo: class-t hozzaadni; szint modositani
 h1,
 p {
   color: #7f555b;
 }
 
 p {
-  font-size: 27px;
+  font-size: 24px;
 }
