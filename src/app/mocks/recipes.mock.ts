@@ -1,4 +1,4 @@
-import { Recipe } from './app.models';
+import { Recipe } from '../app.models';
 
 export const mockRecipes: Recipe[] = [
   {
