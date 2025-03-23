@@ -4,9 +4,30 @@ html {
   color-scheme: light dark;
   @include mat.theme(
     (
-      color: mat.$red-palette,
+      color: mat.$violet-palette,
       typography: Roboto,
       density: 0,
+    )
+  );
+
+  @include mat.button-overrides(
+    (
+      // button background color
+      filled-container-color: #ff707a,
+      filled-label-text-color: #50115f,
+      //  focusnal ez ervenyesul
+      // filled-ripple-color: #8d181f
+    )
+  );
+
+  @include mat.fab-overrides(
+    (
+      // button background color
+      small-container-color: #ff707a,
+      // When button is hovered, it makes shadow
+      small-container-elevation-shadow: #50115f,
+      // button icon color
+      small-foreground-color: #50115f
     )
   );
 }
@@ -28,3 +49,5 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+// #ffdfaa
