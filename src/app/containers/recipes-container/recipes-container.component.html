@@ -1,1 +1,28 @@
-<p>recipes-container works!</p>
+<div class="recipes-container">
+  @for (recipe of recipes; track recipe.id) {
+  <mat-card class="recipe-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{ recipe.name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="recipe.imgSrc"
+      [alt]="`image of ${recipe.name}`"
+    />
+    <mat-card-content class="recipe-card-content">
+      <p>
+        {{ recipe.cardContent }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-flat-button
+        class="recipe-card-button"
+        (click)="onViewRecipe(recipe.id)"
+      >
+        View Recipe
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  }
+</div>
