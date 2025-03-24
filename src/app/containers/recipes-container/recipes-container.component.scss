@@ -1,7 +1,7 @@
 .recipe-card {
   width: 300px;
   margin: 1rem;
-  background-color: #ffdfaa40;
+  background-color: #fcfef9;
 }
 
 .recipes-container {
@@ -19,6 +19,10 @@ p {
   height: 112px;
 }
 
-.recipe-card-button {
-  //   color: #50115f;
+.card-title {
+  padding-bottom: 1rem;
+}
+
+.recipe-card-button:hover {
+  background-color: #87a95a;
 }
