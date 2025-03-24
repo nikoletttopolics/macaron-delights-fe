@@ -4,7 +4,7 @@ html {
   color-scheme: light dark;
   @include mat.theme(
     (
-      color: mat.$violet-palette,
+      color: mat.$spring-green-palette,
       typography: Roboto,
       density: 0,
     )
@@ -13,21 +13,21 @@ html {
   @include mat.button-overrides(
     (
       // button background color
-      filled-container-color: #fc9299,
-      filled-label-text-color: #50115f,
+      filled-container-color: #a9d471,
+      filled-label-text-color: #000000,
       //  focusnal ez ervenyesul
-      // filled-ripple-color: #8d181f
+      filled-ripple-color: #657f43
     )
   );
 
   @include mat.fab-overrides(
     (
       // button background color
-      small-container-color: #ff707a,
+      small-container-color: #a9d471,
       // When button is hovered, it makes shadow
-      small-container-elevation-shadow: #50115f,
+      small-container-elevation-shadow: #87a95a,
       // button icon color
-      small-foreground-color: #50115f
+      small-foreground-color: #384625
     )
   );
 }
@@ -55,3 +55,4 @@ body {
 // vilagos zold: #edffde
 // erosebb zold: #bcec7e
 // fekete: #000000
+// home-page background color: #fbfff2
