@@ -1,13 +1,32 @@
 <mat-toolbar class="header">
   <img src="images/macaron-logo-new.png" alt="" style="height: 70px" />
   <div class="header-left-side">
-    <button class="header-button" mat-button (click)="onNavigateToHome()">
+    <button
+      class="header-button"
+      mat-button
+      (click)="onNavigateToHome()"
+      [routerLink]="['/']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       Home
     </button>
-    <button class="header-button" mat-button (click)="onNavigateToRecipe()">
+    <button
+      class="header-button"
+      mat-button
+      (click)="onNavigateToRecipe()"
+      [routerLink]="['/recipes']"
+      routerLinkActive="active"
+    >
       Recipes
     </button>
-    <button class="header-button" mat-button (click)="onNavigateToWebshop()">
+    <button
+      class="header-button"
+      mat-button
+      (click)="onNavigateToWebshop()"
+      [routerLink]="['/webshop']"
+      routerLinkActive="active"
+    >
       Webshop
     </button>
   </div>

@@ -1,3 +1,20 @@
 .close-button:hover {
   background-color: #87a95a;
 }
+
+.instruction {
+  text-align: justify;
+}
+
+.recipe-dialog-upper-section {
+  display: flex;
+}
+
+.mat-typography {
+  flex: 1;
+}
+
+.recipe-dialog-img {
+  width: 300px;
+  padding-right: 2rem;
+}
