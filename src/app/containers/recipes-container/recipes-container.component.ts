@@ -23,9 +23,11 @@ export class RecipesContainerComponent {
     );
 
     this.dialog.open(RecipeDetailsDialogComponent, {
+      autoFocus: 'first-header',
       data: selectedRecipe,
       width: '700px',
       maxWidth: '700px',
+      maxHeight: '600px',
     });
   }
 }

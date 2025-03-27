@@ -3,10 +3,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Recipe } from '../../app.models';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-recipe-details-dialog',
-  imports: [MatButtonModule, MatDialogModule],
+  imports: [MatButtonModule, MatDialogModule, CommonModule],
   templateUrl: './recipe-details-dialog.component.html',
   styleUrl: './recipe-details-dialog.component.scss',
 })
