@@ -1,0 +1,45 @@
+<mat-card class="webshop-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title class="webshop-card-title">{{
+      webshopItem.name
+    }}</mat-card-title>
+  </mat-card-header>
+  <img
+    mat-card-image
+    [src]="webshopItem.imageSrc"
+    [alt]="`image of ${webshopItem.name}`"
+  />
+  <mat-card-content class="webshop-card-content">
+    @if (webshopItem.isInStock) {
+    <div class="in-stock">In Stock</div>
+    <div>Quantity: {{ webshopItem.quantity }}</div>
+    } @else {
+    <div class="out-of-stock">Out Of Stock</div>
+    }
+  </mat-card-content>
+  <mat-card-actions class="mat-card-actions">
+    <button
+      mat-mini-fab
+      matTooltip="Remove from cart"
+      matTooltipShowDelay="1000"
+      [disabled]="!webshopItem.isInStock"
+      (click)="onRemoveFromCart(webshopItem.id)"
+    >
+      <mat-icon>remove</mat-icon>
+    </button>
+
+    <button mat-button class="view-button" (click)="onViewAllergens()">
+      View
+    </button>
+
+    <button
+      mat-mini-fab
+      matTooltip="Add to cart"
+      matTooltipShowDelay="1000"
+      [disabled]="!webshopItem.isInStock"
+      (click)="onAddToCart(webshopItem.id)"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

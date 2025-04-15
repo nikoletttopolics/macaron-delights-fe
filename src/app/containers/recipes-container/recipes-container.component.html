@@ -1,5 +1,8 @@
+@if (isLoading$ | async) {
+<app-loader></app-loader>
+} @else {
 <div class="recipes-container">
-  @for (recipe of recipes; track recipe.id) {
+  @for (recipe of recipes$ | async; track recipe.id) {
   <mat-card class="recipe-card" appearance="outlined">
     <mat-card-header>
       <mat-card-title class="card-title">{{ recipe.name }}</mat-card-title>
@@ -26,3 +29,4 @@
   </mat-card>
   }
 </div>
+}

@@ -13,3 +13,19 @@ export interface Ingredient {
   name: string;
   quantity: string;
 }
+
+export interface WebshopItem {
+  readonly id: number;
+  readonly name: string;
+  readonly imageSrc: string;
+  readonly quantity: number;
+  readonly isInStock: boolean;
+  readonly allergens: string[];
+  readonly backgroundColor: string;
+}
+
+export interface CartItem {
+  readonly id: number;
+  readonly name: string;
+  readonly quantity: number;
+}
