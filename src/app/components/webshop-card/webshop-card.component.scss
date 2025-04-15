@@ -1,0 +1,33 @@
+.webshop-card {
+  width: 300px;
+  margin: 1rem;
+  background-color: #fcfef9;
+  height: 528px;
+}
+
+.in-stock {
+  color: green;
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+.out-of-stock {
+  color: red;
+  font-weight: 500;
+  padding: 8px 0;
+  height: 38.4px;
+}
+
+.mat-card-actions {
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.webshop-card-title {
+  padding-bottom: 1rem;
+}
+
+.view-button {
+  color: black;
+  font-size: medium;
+}

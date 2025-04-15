@@ -1,0 +1,12 @@
+<div [ngStyle]="{ 'background-color': allergensRef.backgroundColor }">
+  <h1 mat-dialog-title class="mat-dialog-title">{{ allergensRef.name }}</h1>
+  <mat-dialog-content class="mat-typography">
+    <h3>Allergens</h3>
+    @for (allergen of allergensRef.allergens; track $index) {
+    <li>{{ allergen }}</li>
+    }
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-flat-button mat-dialog-close class="close-button">Close</button>
+  </mat-dialog-actions>
+</div>
