@@ -1,0 +1,89 @@
+:host {
+  display: block;
+  padding: 2rem;
+  background-color: #fcfef9; // soft cream background fcfef9
+  min-height: 100vh;
+  color: #050404;
+}
+
+.about-section {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+mat-card {
+  background-color: #f3ffd9; // soft green #edffde
+  box-shadow: 0 4px 12px #384625; // rgba(169, 212, 113, 0.4)
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+h1 {
+  color: #384625;
+  margin: 0;
+}
+
+p {
+  font-size: 22px;
+  line-height: 1.4;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 22px;
+}
+
+mat-chip {
+  background-color: #bcec7e;
+}
+
+.contact-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-links a {
+  color: #384625;
+  font-weight: 500;
+  font-size: 22px;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+.learning-section {
+  display: flex;
+}
+
+.what-i-learned {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.tech-stack {
+  flex: 1;
+}
+
+img {
+  height: 16px;
+  padding-right: 8px;
+}
+
+.mat-mdc-chip {
+  ::ng-deep {
+    .mdc-evolution-chip__text-label {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

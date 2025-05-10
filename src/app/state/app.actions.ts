@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Recipe, WebshopItem } from '../app.models';
+import { CheckoutForm, Recipe, WebshopItem } from '../app.models';
 
 export const loadRecipesStart = createAction('[Recipes] Load recipes');
 
@@ -14,6 +14,10 @@ export const loadRecipesError = createAction(
 );
 
 export const loadWebshopItemsStart = createAction('[Webshop] Load WebshopItem');
+
+export const loadWebshopItemsAlreadyLoaded = createAction(
+  '[Webshop] Load Webshop Items Already Loaded'
+);
 
 export const loadWebshopItemsSuccess = createAction(
   '[Webshop] Webshop loaded',
@@ -33,4 +37,9 @@ export const addToCart = createAction(
 export const removeFromCart = createAction(
   '[Webshop] Remove from cart',
   props<{ id: number }>()
+);
+
+export const updateForm = createAction(
+  '[Cart] Update form',
+  props<{ checkoutForm: CheckoutForm }>()
 );

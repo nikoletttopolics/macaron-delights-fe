@@ -28,4 +28,14 @@ export interface CartItem {
   readonly id: number;
   readonly name: string;
   readonly quantity: number;
+  readonly imageSrc: string;
+  readonly isInStock: boolean;
+}
+
+export interface CheckoutForm {
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly address: string;
+  readonly phoneNumber: string;
+  readonly emailAddress: string;
 }

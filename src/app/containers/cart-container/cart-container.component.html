@@ -1,1 +1,82 @@
-<p>cart-container works!</p>
+<div class="main-cart-wrapper">
+  <div class="cart-items-wrapper">
+    @if ((cartItems$ | async)?.length! > 0) { @for (cartItem of cartItems$ |
+    async; track cartItem.id) {
+    <div class="cart-item">
+      <span class="cart-item-name">{{ cartItem.name }}</span>
+      <div class="button-wrapper">
+        <button
+          class="remove-button"
+          mat-mini-fab
+          matTooltip="Remove from cart"
+          matTooltipShowDelay="1000"
+          (click)="removeFromCart(cartItem.id)"
+        >
+          <mat-icon>{{ cartItem.quantity > 1 ? "remove" : "delete" }}</mat-icon>
+        </button>
+
+        <span class="cart-item-quantity">{{ cartItem.quantity }}</span>
+        <button
+          class="add-button"
+          mat-mini-fab
+          matTooltip="add to cart"
+          matTooltipShowDelay="1000"
+          (click)="addToCart(cartItem.id)"
+          [disabled]="!cartItem.isInStock"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+    } } @else {
+    <div class="empty-cart-wrapper">
+      <img class="empty-cart-img" src="images/emptyCart.png" alt="empty cart" />
+    </div>
+    }
+  </div>
+  <div class="billing-informations-wrapper" [formGroup]="checkoutForm">
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="Ex. John" formControlName="firstName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Ex. Doe" formControlName="lastName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input
+        matInput
+        placeholder="ZIP Code, City, Street, ..."
+        formControlName="address"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone number</mat-label>
+      <input
+        matInput
+        placeholder="+1-123-456-789"
+        formControlName="phoneNumber"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>E-mail address</mat-label>
+      <input
+        matInput
+        placeholder="john.doe@gmail.com"
+        formControlName="emailAddress"
+        [email]="true"
+      />
+    </mat-form-field>
+  </div>
+</div>
+<div class="checkout-button">
+  <button
+    class="checkout-text"
+    mat-flat-button
+    (click)="onCheckout()"
+    [disabled]="checkoutForm.invalid || (cartItems$ | async)?.length === 0"
+  >
+    Checkout
+  </button>
+</div>

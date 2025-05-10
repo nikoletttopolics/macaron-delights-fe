@@ -1,0 +1,89 @@
+.main-cart-wrapper {
+  display: flex;
+  margin: 1rem;
+}
+
+.cart-items-wrapper {
+  flex: 1;
+  padding: 1rem;
+  border-right: 2px solid #a9d471;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+  width: 450px;
+  background-color: #e2ffca;
+  padding: 1rem;
+  border-radius: 20px;
+  justify-self: center;
+}
+
+.cart-item-name {
+  font-size: larger;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.remove-button {
+  height: 32px;
+  width: 32px;
+}
+
+.cart-item-quantity {
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 35px;
+  text-align: center;
+}
+
+.add-button {
+  height: 32px;
+  width: 32px;
+}
+
+.checkout-button {
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-text {
+  font-size: large;
+}
+
+.empty-cart-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.empty-cart-img {
+  width: 300px;
+  border-radius: 20px;
+}
+
+.billing-informations-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+:host {
+  .mat-mdc-form-field {
+    width: 75%;
+    margin-left: 1rem;
+  }
+}
+
+.billing-informations-wrapper {
+  ::ng-deep {
+    .mdc-text-field {
+      background-color: #e2ffca;
+      border-radius: 20px;
+    }
+  }
+}

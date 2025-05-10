@@ -7,16 +7,28 @@ import {
   loadWebshopItemsStart,
   loadWebshopItemsSuccess,
   loadWebshopItemsError,
+  loadWebshopItemsAlreadyLoaded,
 } from './app.actions';
 import { of } from 'rxjs';
-import { catchError, delay, map, mergeMap, tap } from 'rxjs/operators';
+import {
+  catchError,
+  delay,
+  filter,
+  map,
+  mergeMap,
+  tap,
+  withLatestFrom,
+} from 'rxjs/operators';
 import { mockRecipes } from '../mocks/recipes.mock';
 import { Recipe, WebshopItem } from '../app.models';
 import { mockWebshopItems } from '../mocks/webshop.mock';
+import { Store } from '@ngrx/store';
+import { selectWebshopItems } from './app.selectors';
 
 @Injectable()
 export class MacaronEffects {
   actions$ = inject(Actions);
+  store = inject(Store);
 
   loadRecipes$ = createEffect(() =>
     this.actions$.pipe(
@@ -24,7 +36,7 @@ export class MacaronEffects {
       mergeMap(() =>
         of(mockRecipes).pipe(
           // itt kamu apihívásokat végzünk, ami egy observable és így tudunk pipeolni rajta
-          delay(3000),
+          delay(2000),
           map((recipes: Recipe[]) => {
             // ez a success ág, ahol dispatcheljük a success actiont
             return loadRecipesSuccess({ recipes: recipes });
@@ -38,17 +50,22 @@ export class MacaronEffects {
   loadWebshopItems$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadWebshopItemsStart), // itt fülelünk a dispatchelt actionre
-      mergeMap(() =>
-        of(mockWebshopItems).pipe(
-          // itt kamu apihívásokat végzünk, ami egy observable és így tudunk pipeolni rajta
-          delay(3000),
-          map((webshopItems: WebshopItem[]) => {
-            // ez a success ág, ahol dispatcheljük a success actiont
-            return loadWebshopItemsSuccess({ webshopItems: webshopItems });
-          }),
-          catchError((error) => of(loadWebshopItemsError({ error: error }))) // error ág, ahol -||-
-        )
-      )
+      withLatestFrom(this.store.select(selectWebshopItems)),
+      mergeMap(([_, webshopItems]) => {
+        if (webshopItems.length > 0) {
+          return of(loadWebshopItemsAlreadyLoaded());
+        } else {
+          return of(mockWebshopItems).pipe(
+            // itt kamu apihívásokat végzünk, ami egy observable és így tudunk pipeolni rajta
+            // delay(2000),
+            map((webshopItems: WebshopItem[]) => {
+              // ez a success ág, ahol dispatcheljük a success actiont
+              return loadWebshopItemsSuccess({ webshopItems: webshopItems });
+            }),
+            catchError((error) => of(loadWebshopItemsError({ error: error }))) // error ág, ahol -||-
+          );
+        }
+      })
     )
   );
 }
