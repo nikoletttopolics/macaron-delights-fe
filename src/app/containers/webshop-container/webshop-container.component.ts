@@ -37,28 +37,9 @@ export class WebshopContainerComponent implements OnInit {
 
   onAddedCartItemId(id: number) {
     this.store.dispatch(addToCart({ id: id }));
-    // const selectedWebshopItem = this.webshopItems.find(
-    //   (item) => item.id === id
-    // )!;
-    // console.log(selectedWebshopItem);
-    // const isAlreadyAdded = this.cart.find((item) => item.id === id);
-    // console.log(isAlreadyAdded);
-    // this.cart = [
-    //   ...this.cart,
-    //   {
-    //     id: selectedWebshopItem.id,
-    //     name: selectedWebshopItem.name,
-    //     quantity: 1,
-    //   },
-    // ];
-    // console.log(this.cart);
   }
 
   onRemovedCartItemId(id: number) {
     this.store.dispatch(removeFromCart({ id: id }));
-    // const selectedWebshopItem = this.webshopItems.find(
-    //   (item) => item.id === id
-    // );
-    // console.log(selectedWebshopItem);
   }
 }

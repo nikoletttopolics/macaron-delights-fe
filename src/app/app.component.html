@@ -29,10 +29,20 @@
     >
       Webshop
     </button>
+    <button
+      class="header-button"
+      mat-button
+      (click)="onNavigateToAboutMe()"
+      [routerLink]="['/aboutMe']"
+      routerLinkActive="active"
+    >
+      About me
+    </button>
   </div>
   <div class="header-right-side">
     <button
       mat-mini-fab
+      [matBadge]="(cartItemsLength$ | async) || null"
       class="cart-background"
       aria-label="Example icon button with a menu icon"
       (click)="onNavigateToCart()"

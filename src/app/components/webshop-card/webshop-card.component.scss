@@ -19,7 +19,7 @@
 }
 
 .mat-card-actions {
-  justify-content: center;
+  justify-content: space-around;
   padding-top: 3rem;
 }
 
@@ -30,4 +30,9 @@
 .view-button {
   color: black;
   font-size: medium;
+}
+
+.add-to-cart-button {
+  height: 40px;
+  color: black;
 }
