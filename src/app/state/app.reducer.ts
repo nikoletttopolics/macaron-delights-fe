@@ -11,6 +11,7 @@ import {
   removeFromCart,
   loadWebshopItemsAlreadyLoaded,
   updateForm,
+  checkoutFinished,
 } from './app.actions';
 
 export interface MacaronState {
@@ -171,5 +172,17 @@ export const macaronReducer = createReducer(
   on(updateForm, (state, { checkoutForm }) => ({
     ...state,
     checkoutForm: checkoutForm,
+  })),
+
+  on(checkoutFinished, (state) => ({
+    ...state,
+    cart: [],
+    checkoutForm: {
+      firstName: '',
+      lastName: '',
+      address: '',
+      phoneNumber: '',
+      emailAddress: '',
+    },
   }))
 );

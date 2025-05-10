@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -17,11 +17,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AsyncPipe } from '@angular/common';
-import { addToCart, removeFromCart, updateForm } from '../../state/app.actions';
+import {
+  addToCart,
+  checkoutFinished,
+  removeFromCart,
+  updateForm,
+} from '../../state/app.actions';
 import { CheckoutForm } from '../../app.models';
 import { take } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { CheckoutDialogComponent } from '../../components/checkout-dialog/checkout-dialog.component';
 
 @Component({
   selector: 'app-cart-container',
@@ -43,6 +47,7 @@ export class CartContainerComponent implements OnInit {
   dialog = inject(MatDialog);
 
   cartItems$ = this.store.select(selectedCartItems);
+  showCheckoutFinishedView = false;
 
   checkoutForm = new FormGroup({
     firstName: new FormControl('', [
@@ -85,10 +90,7 @@ export class CartContainerComponent implements OnInit {
   }
 
   onCheckout(): void {
-    this.dialog.open(CheckoutDialogComponent, {
-      width: '900px',
-      maxHeight: '450px',
-      maxWidth: '450px',
-    });
+    this.showCheckoutFinishedView = true;
+    this.store.dispatch(checkoutFinished());
   }
 }

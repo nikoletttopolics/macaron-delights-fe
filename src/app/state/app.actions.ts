@@ -43,3 +43,5 @@ export const updateForm = createAction(
   '[Cart] Update form',
   props<{ checkoutForm: CheckoutForm }>()
 );
+
+export const checkoutFinished = createAction('[Cart] Checkout finished');
