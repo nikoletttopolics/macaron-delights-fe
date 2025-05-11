@@ -1,3 +1,4 @@
+@if (!showCheckoutFinishedView) {
 <div class="main-cart-wrapper">
   <div class="cart-items-wrapper">
     @if ((cartItems$ | async)?.length! > 0) { @for (cartItem of cartItems$ |
@@ -80,3 +81,17 @@
     Checkout
   </button>
 </div>
+} @else {
+<div class="checkout-finished-view">
+  <div class="message">
+    <h2>Thank you for your Order!</h2>
+  </div>
+  <div>
+    <img
+      class="smiley-macaron-img"
+      src="images/smiley-macaron.png"
+      alt="smiley macaron"
+    />
+  </div>
+</div>
+}
