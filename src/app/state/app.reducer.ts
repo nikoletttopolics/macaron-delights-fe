@@ -143,7 +143,11 @@ export const macaronReducer = createReducer(
     if (existingCartItem.quantity > 1) {
       updateCart = state.cart.map((cartItem) =>
         cartItem.id === action.id
-          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          ? {
+              ...cartItem,
+              quantity: cartItem.quantity - 1,
+              isInStock: true,
+            }
           : cartItem
       );
     } else {

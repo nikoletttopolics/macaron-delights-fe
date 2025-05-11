@@ -22,13 +22,8 @@ import { tap } from 'rxjs';
 export class WebshopContainerComponent implements OnInit {
   store = inject(Store);
 
-  webshopItems$ = this.store.select(selectWebshopItems).pipe(
-    tap((webshopItems) => {
-      this.webshopItems = webshopItems;
-    })
-  );
+  webshopItems$ = this.store.select(selectWebshopItems);
 
-  webshopItems: WebshopItem[] = mockWebshopItems;
   isLoading$ = this.store.select(selectLoading);
 
   ngOnInit(): void {
