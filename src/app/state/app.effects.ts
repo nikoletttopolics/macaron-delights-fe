@@ -32,16 +32,14 @@ export class MacaronEffects {
 
   loadRecipes$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadRecipesStart), // itt fülelünk a dispatchelt actionre
+      ofType(loadRecipesStart),
       mergeMap(() =>
         of(mockRecipes).pipe(
-          // itt kamu apihívásokat végzünk, ami egy observable és így tudunk pipeolni rajta
           delay(2000),
           map((recipes: Recipe[]) => {
-            // ez a success ág, ahol dispatcheljük a success actiont
             return loadRecipesSuccess({ recipes: recipes });
           }),
-          catchError((error) => of(loadRecipesError({ error: error }))) // error ág, ahol -||-
+          catchError((error) => of(loadRecipesError({ error: error })))
         )
       )
     )
@@ -49,20 +47,18 @@ export class MacaronEffects {
 
   loadWebshopItems$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadWebshopItemsStart), // itt fülelünk a dispatchelt actionre
+      ofType(loadWebshopItemsStart),
       withLatestFrom(this.store.select(selectWebshopItems)),
       mergeMap(([_, webshopItems]) => {
         if (webshopItems.length > 0) {
           return of(loadWebshopItemsAlreadyLoaded());
         } else {
           return of(mockWebshopItems).pipe(
-            // itt kamu apihívásokat végzünk, ami egy observable és így tudunk pipeolni rajta
-            // delay(2000),
+            delay(2000),
             map((webshopItems: WebshopItem[]) => {
-              // ez a success ág, ahol dispatcheljük a success actiont
               return loadWebshopItemsSuccess({ webshopItems: webshopItems });
             }),
-            catchError((error) => of(loadWebshopItemsError({ error: error }))) // error ág, ahol -||-
+            catchError((error) => of(loadWebshopItemsError({ error: error })))
           );
         }
       })
