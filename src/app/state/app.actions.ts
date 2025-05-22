@@ -45,3 +45,12 @@ export const updateForm = createAction(
 );
 
 export const checkoutFinished = createAction('[Cart] Checkout finished');
+
+export const appInitStart = createAction('[Home] App init start');
+
+export const appInitSuccess = createAction('[Home] App init success');
+
+export const appInitError = createAction(
+  '[Home] App init error',
+  props<{ error: string }>()
+);

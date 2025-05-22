@@ -8,20 +8,19 @@ import {
   loadWebshopItemsSuccess,
   loadWebshopItemsError,
   loadWebshopItemsAlreadyLoaded,
+  appInitStart,
+  appInitSuccess,
+  appInitError,
 } from './app.actions';
 import { of } from 'rxjs';
 import {
   catchError,
   delay,
-  filter,
   map,
   mergeMap,
-  tap,
   withLatestFrom,
 } from 'rxjs/operators';
-import { mockRecipes } from '../mocks/recipes.mock';
 import { Recipe, WebshopItem } from '../app.models';
-import { mockWebshopItems } from '../mocks/webshop.mock';
 import { Store } from '@ngrx/store';
 import { selectWebshopItems } from './app.selectors';
 import { ApiConnectorService } from '../services/api-connector.service';
@@ -31,6 +30,18 @@ export class MacaronEffects {
   actions$ = inject(Actions);
   store = inject(Store);
   apiConnectorService = inject(ApiConnectorService);
+
+  appInit$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(appInitStart),
+      mergeMap(() =>
+        this.apiConnectorService.getAppInit().pipe(
+          map(() => appInitSuccess()),
+          catchError((error) => of(appInitError({ error: error })))
+        )
+      )
+    )
+  );
 
   loadRecipes$ = createEffect(() =>
     this.actions$.pipe(
