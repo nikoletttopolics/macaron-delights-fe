@@ -11,6 +11,7 @@ export class ApiConnectorService {
 
   recipesUrl = 'https://macaron-delights-be.onrender.com/recipes';
   webshopUrl = 'https://macaron-delights-be.onrender.com/webshop';
+  appInitUrl = 'https://macaron-delights-be.onrender.com/appInit';
 
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.recipesUrl);
@@ -18,5 +19,9 @@ export class ApiConnectorService {
 
   getWebshopItems(): Observable<WebshopItem[]> {
     return this.http.get<WebshopItem[]>(this.webshopUrl);
+  }
+
+  getAppInit(): Observable<void> {
+    return this.http.get<any>(this.appInitUrl);
   }
 }
