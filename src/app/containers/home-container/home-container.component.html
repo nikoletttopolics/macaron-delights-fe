@@ -1,13 +1,6 @@
-<div class="container">
-  <div class="item item-1">
-    <img
-      [src]="macaronsOnPlateSrc"
-      alt="a bowl of macarons"
-      style="width: 350px"
-    />
-  </div>
-  <div class="item item-2">
-    <h1 style="margin-bottom: 0">The history of Macarons</h1>
+<div class="home-flex-container">
+  <div class="home-flex-item">
+    <h1 class="home-history-of-macarons-title">The history of Macarons</h1>
     <p>
       The fascinating origin of the macaron can be traced back to Italy during
       the Renaissance period. At the time, the macaron was a small, almond-based
@@ -15,7 +8,12 @@
       was made from almond flour, egg whites, and sugar, and was often flavoured
       with vanilla or citrus.
     </p>
-    <p style="margin: 0">
+    <img
+      [src]="macaronsWideImg"
+      class="home-macaron-img1"
+      alt="macarons on table"
+    />
+    <p>
       In the 16th century Catherine de Medici, the wife of King Henry II of
       France, introduced her beloved macarons to the French. When she married
       the French king, she brought her Italian pastry chefs with her to France,
@@ -27,7 +25,7 @@
       their own unique flavours.
     </p>
   </div>
-  <div class="item item-3">
+  <div class="home-flex-item">
     <h1>There are two ways of making Macarons</h1>
     <p>
       The first is the Italian method, which involves whisking egg whites with
@@ -35,8 +33,9 @@
       flour are added and mixed with the egg to form a paste. This forms the
       macaron mixture.
     </p>
+    <img [src]="cityImagePathSrc" class="home-macaron-img2" alt="paris-rome" />
     <p>
-      The second method is the French method, which involves whisking egg whites
+      The second one is the French method, which involves whisking egg whites
       until it forms a stiff-peaked meringue. Powdered sugar and almond flour
       are then added slowly and mixed to achieve the desired consistency.
     </p>
@@ -45,22 +44,18 @@
       consistent results.
     </p>
   </div>
-  <div class="item item-4">
-    <img
-      [src]="cityImagePathSrc"
-      style="width: 400px; height: 300px"
-      alt="paris-rome"
-    />
-  </div>
-  <div class="item item-5">
-    <img [src]="macaronPyramidSrc" style="width: 460px" alt="lemon-macarons" />
-  </div>
-  <div class="item item-6">
+
+  <div class="home-flex-item">
     <h1>March 20th is National Macaron Day</h1>
     <p>
       Are you surprised? Well, that is a fun fact. Macaron has its day and it is
       the biggest macaron event in the year.
     </p>
+    <img
+      [src]="macaronInternationDay"
+      class="home-macaron-img3"
+      alt="macaron internation day"
+    />
     <p>
       Grab some friends and head over to a bakery together, or bring some treats
       into the office to delight coworkers. Whatever ways the day is celebrated,

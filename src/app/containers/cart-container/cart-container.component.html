@@ -71,9 +71,9 @@
     </mat-form-field>
   </div>
 </div>
-<div class="checkout-button">
+<div class="checkout-button-wrapper">
   <button
-    class="checkout-text"
+    class="checkout-button"
     mat-flat-button
     (click)="onCheckout()"
     [disabled]="checkoutForm.invalid || (cartItems$ | async)?.length === 0"

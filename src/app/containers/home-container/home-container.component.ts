@@ -12,9 +12,9 @@ import { appInitStart } from '../../state/app.actions';
 export class HomeContainerComponent implements OnInit {
   store = inject(Store);
 
-  cityImagePathSrc: string = 'images/paris-rome.webp';
-  macaronsOnPlateSrc: string = 'images/macarons-on-plate2.png';
-  macaronPyramidSrc: string = 'images/macaron-pyramid.png';
+  cityImagePathSrc: string = 'images/paris-rome.png';
+  macaronsWideImg: string = 'images/macaronsWideImg2.jpg';
+  macaronInternationDay: string = 'images/macaronsWideImg4.jpg';
 
   ngOnInit(): void {
     this.store.dispatch(appInitStart());

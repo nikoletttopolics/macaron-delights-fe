@@ -26,3 +26,18 @@ p {
 .recipe-card-button:hover {
   background-color: #87a95a;
 }
+
+@media (max-width: 600px) {
+  .recipes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+  }
+  .recipe-card {
+    width: 100%;
+    max-width: 95vw;
+    margin: 0;
+  }
+}
