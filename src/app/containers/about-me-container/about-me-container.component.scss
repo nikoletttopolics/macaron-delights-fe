@@ -63,6 +63,7 @@ mat-chip {
 
 .learning-section {
   display: flex;
+  flex-direction: row;
 }
 
 .what-i-learned {
@@ -85,5 +86,17 @@ img {
       display: flex;
       align-items: center;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .learning-section {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }

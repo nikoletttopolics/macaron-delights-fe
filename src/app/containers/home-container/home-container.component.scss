@@ -1,31 +1,28 @@
-.container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #fcfef9;
-}
-
-.item-2 {
-  grid-area: 1 / 2 / span 1 / span 2;
-  justify-content: center;
+.home-flex-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.item-3 {
-  grid-area: 2 / 1 / span 1 / span 2;
+.home-flex-item {
+  width: 100%;
 }
 
-.item-4 {
-  display: flex;
-  justify-content: end;
+.home-history-of-macarons-title {
+  margin-top: 1rem;
 }
 
-.item-6 {
-  grid-area: 3 / 2 / span 1 / span 2;
-}
-
-.item {
-  padding: 32px;
+.home-macaron-img1,
+.home-macaron-img2,
+.home-macaron-img3 {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  display: block;
 }
 
 h1 {
@@ -36,4 +33,10 @@ p {
   font-size: 22px;
   text-align: justify;
   line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .home-history-of-macarons-title {
+    margin-top: 0.5rem;
+  }
 }
